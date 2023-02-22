@@ -12,3 +12,13 @@ def main():
         except (EOFError, ValueError) as e:
             print(f'Error: {e}')
     print(f'Processing cell {cell_reference}')
+
+    if len(sys.argv) > 1:
+        cell_reference = sys.argv[1]
+    else:
+        cell_reference = 'A1'
+
+    print(f"Processing cell reference: {cell_reference}")
+
+if __name__ == "__main__":
+    main()
