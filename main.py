@@ -10,7 +10,7 @@ workbook = openpyxl.load_workbook(input_file_path)
 sheet = workbook.active
 
 # Get the cell reference from the user input
-cell_reference = input("Enter the cell reference (e.g. A1): ")
+cell_reference = input("Enter the cell reference A1: ")
 
 # Read the value from the corresponding cell
 value = sheet[cell_reference].value
