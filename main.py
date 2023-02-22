@@ -1,12 +1,12 @@
 import openpyxl
-import sys
+import os
 
 def main():
     wb = openpyxl.load_workbook('input_data.xlsx')
     ws = wb.active
-    cell_reference = sys.argv[1]
+    cell_reference = os.environ.get('CELL_REFERENCE')
     print(f'Processing cell {cell_reference}')
-    
+
     while True:
         try:
             sys.stdout.flush()
@@ -17,6 +17,3 @@ def main():
             break
         except (EOFError, ValueError) as e:
             print(f'Error: {e}')
-
-if __name__ == '__main__':
-    main()
