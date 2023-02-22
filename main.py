@@ -1,16 +1,20 @@
 import sys
 
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: python main.py <cell_reference>")
-        return
-    cell_reference = sys.argv[1]
-    if not cell_reference:
-        raise ValueError('CELL_REFERENCE environment variable is not set')
-    print(f'Processing cell {cell_reference}')
-    
-    cell_value = ws[cell_reference].value
-    print(f'Value in cell {cell_reference}: {cell_value}')
+    # Get the cell reference from the environment variable
+    cell_reference = os.environ.get('CELL_REFERENCE')
 
-if __name__ == '__main__':
-    main()
+    if cell_reference is None:
+        raise ValueError('CELL_REFERENCE environment variable is not set')
+
+    # Load the workbook
+    wb = load_workbook(filename='example.xlsx')
+
+    # Get the active worksheet
+    ws = wb.active
+
+    # Get the value in the cell
+    cell_value = ws[cell_reference].value
+
+    # Print the cell value
+    print(f'Value in cell {cell_reference}: {cell_value}')
