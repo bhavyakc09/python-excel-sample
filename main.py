@@ -5,7 +5,7 @@ import openpyxl
 input_file_path = 'input_data.xlsx'
 
 # Load the workbook
-workbook = openpyxl.load_workbook(input_data.xlsx)
+workbook = openpyxl.load_workbook('input_data.xlsx')
 
 # Select the first sheet
 sheet = workbook.active
