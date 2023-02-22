@@ -1,6 +1,8 @@
 import openpyxl
 
 def main():
+    wb = load_workbook('input_data.xlsx')
+    ws = wb.active
     while True:
         try:
             cell_reference = input('Please enter the cell reference (e.g. A1): ')
