@@ -1,20 +1,29 @@
-import sys
 import openpyxl
+import ipywidgets as widgets
+from IPython.display import display
 
 def main():
-    # parse command line arguments
-    if len(sys.argv) < 2:
-        cell_reference = input("Please enter the cell reference (e.g. A1): ")
-    else:
-        cell_reference = sys.argv[1]
-
-    # load the workbook and select the active worksheet
+    # load workbook and active worksheet
     workbook = openpyxl.load_workbook('input_data.xlsx')
     worksheet = workbook.active
 
-    # retrieve the cell value and print it
-    cell = worksheet[cell_reference]
-    print(cell.value)
+    # create Text widget for input
+    cell_reference = widgets.Text(value='A1', description='Cell reference:')
+
+    # display the Text widget
+    display(cell_reference)
+
+    # wait for user to submit input
+    button = widgets.Button(description='Submit')
+    display(button)
+    out = widgets.Output()
+
+    def on_button_click(_):
+        # get cell value
+        cell = worksheet[cell_reference.value]
+        print(cell.value)
+
+    button.on_click(on_button_click)
 
 if __name__ == '__main__':
     main()
