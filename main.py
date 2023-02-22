@@ -13,7 +13,7 @@ def main():
             break
         except (EOFError, ValueError) as e:
             print(f'Error: {e}')
-    print(f'Processing cell {cell_reference}'
+    print(f'Processing cell {cell_reference}')
 
 if __name__ == '__main__':
     main()
