@@ -1,10 +1,10 @@
-import openpyxl
-import os
+import sys
 
 def main():
-    wb = openpyxl.load_workbook('input_data.xlsx')
-    ws = wb.active
-    cell_reference = os.environ.get('CELL_REFERENCE')
+    if len(sys.argv) < 2:
+        print("Usage: python main.py <cell_reference>")
+        return
+    cell_reference = sys.argv[1]
     if not cell_reference:
         raise ValueError('CELL_REFERENCE environment variable is not set')
     print(f'Processing cell {cell_reference}')
