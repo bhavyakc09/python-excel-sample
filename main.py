@@ -10,6 +10,8 @@ def main():
 
 workbook = openpyxl.load_workbook('input_data.xlsx')
 worksheet = workbook.active
-cell_reference = raw_input("Please enter the cell reference (e.g. A1): ")
+print("Before input prompt")
+cell_reference = input("Please enter the cell reference (e.g. A1): ")
+print("After input prompt")
 print(cell.value)
 
