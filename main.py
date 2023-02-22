@@ -11,7 +11,7 @@ def main():
         try:
             sys.stdout.flush()
             print("Please enter the cell reference (e.g. A1): ")
-            cell_reference = input()
+            cell_reference = raw_input()  # use raw_input instead of input
             if not cell_reference:
                 raise ValueError('Cell reference cannot be empty')
             break
