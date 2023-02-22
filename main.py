@@ -1,21 +1,15 @@
-import sys
+import argparse
 import openpyxl
 
-# Define the path to the input file
+parser = argparse.ArgumentParser(description='Get value from cell in Excel file.')
+parser.add_argument('cell_reference', help='The cell reference (e.g. A1)')
+args = parser.parse_args()
+
 input_file_path = 'input_data.xlsx'
 
-# Load the workbook
 workbook = openpyxl.load_workbook('input_data.xlsx')
+worksheet = workbook.active
 
-# Select the first sheet
-sheet = workbook.active
+cell = worksheet[args.cell_reference]
+print(cell.value)
 
-# Get the cell reference from the command line argument
-cell_reference = sys.argv[1]
-cell_reference = input('Please enter the cell reference: ')
-
-# Read the value from the corresponding cell
-value = sheet[cell_reference].value
-
-# Print the input value
-print(f"{cell_reference}: {value}")
