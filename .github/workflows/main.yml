@@ -19,4 +19,4 @@ jobs:
       run: pip install openpyxl
     - name: Run script
       run: python main.py A1
-      working-directory: /
+      working-directory: ./
