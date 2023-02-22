@@ -6,7 +6,6 @@ def main():
     ws = wb.active
     while True:
         try:
-            sys.stdout.flush()
             cell_reference = input('Please enter the cell reference (e.g. A1): ')
             if not cell_reference:
                 raise ValueError('Cell reference cannot be empty')
