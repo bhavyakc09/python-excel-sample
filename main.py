@@ -1,4 +1,6 @@
 import sys
+import os
+os.environ['CELL_REFERENCE'] = 'A1'
 
 def main():
     # Get the cell reference from the environment variable
