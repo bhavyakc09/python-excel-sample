@@ -11,7 +11,7 @@ def main():
     workbook = openpyxl.load_workbook('input_data.xlsx')
     worksheet = workbook.active
     print("Before input prompt")
-    cell_reference = input('Please enter the cell reference (e.g. A1): ')
+    cell_reference = input('Please enter the cell reference (e.g. A1): ') or 'A1'
     print("After input prompt")
     cell = worksheet[cell_reference]
     print(cell.value)
