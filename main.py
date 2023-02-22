@@ -1,4 +1,3 @@
-import sys
 import openpyxl
 
 # Define the path to the input file
@@ -10,8 +9,8 @@ workbook = openpyxl.load_workbook('input_data.xlsx')
 # Select the first sheet
 sheet = workbook.active
 
-# Get the cell reference from the command line argument
-cell_reference = sys.argv[1]
+# Prompt the user to enter the cell reference
+cell_reference = input("Please enter the cell reference: ")
 
 # Read the value from the corresponding cell
 value = sheet[cell_reference].value
