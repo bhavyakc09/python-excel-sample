@@ -1,13 +1,21 @@
+import openpyxl
 import sys
-from openpyxl import load_workbook
 
-def main(cell_reference='A1'):
-    wb = load_workbook('input_data.xlsx')
+def main():
+    wb = openpyxl.load_workbook('input_data.xlsx')
     ws = wb.active
-    print(f'Processing cell {cell_reference}')
-    # do something with the worksheet and cell reference here
+    while True:
+        try:
+            sys.stdout.flush()
+            cell_reference = input('Please enter the cell reference (e.g. A1): ')
+            if not cell_reference:
+                raise ValueError('Cell reference cannot be empty')
+            break
+        except (EOFError, ValueError) as e:
+            print(f'Error: {e}')
+    print(f'Processing cell {cell_reference}'
 
 if __name__ == '__main__':
-    cell_reference = sys.argv[1] if len(sys.argv) > 1 else 'A1'
-    main(cell_reference)
+    main()
+
 
