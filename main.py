@@ -12,6 +12,7 @@ sheet = workbook.active
 
 # Get the cell reference from the command line argument
 cell_reference = sys.argv[1]
+cell_reference = raw_input("Please enter the cell reference: ")
 
 # Read the value from the corresponding cell
 value = sheet[cell_reference].value
