@@ -2,6 +2,8 @@ import sys
 import openpyxl
 
 def main():
+    print("Main function called")
+
     if len(sys.argv) < 2:
         print("Please provide the name of the input file as a command-line argument")
         return
