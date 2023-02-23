@@ -7,7 +7,7 @@ def main():
         return
     
     filename = sys.argv[1]
-    wb = openpyxl.load_workbook(input_data.xlsx)
+    wb = openpyxl.load_workbook(inputfile)
     ws = wb.active
     cell_reference = ws['A1'].value  # Change this to the cell reference that contains the input
     
