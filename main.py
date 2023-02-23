@@ -1,11 +1,12 @@
 import sys
-import os
-os.environ['CELL_REFERENCE'] = 'A1'
 
 def main():
-    cell_reference = input("Please enter the cell reference (e.g. A1): ")
-    cell_value = ws[cell_reference].value
-    print(f"Value in cell {cell_reference}: {cell_value}")
+    if len(sys.argv) < 2:
+        print("Please provide a cell reference as an argument (e.g. A1)")
+        return
+    
+    cell_reference = sys.argv[1]
+    # Rest of your code here
 
 if __name__ == '__main__':
     main()
