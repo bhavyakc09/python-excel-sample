@@ -7,9 +7,9 @@ def main():
         return
     
     filename = sys.argv[1]
-    wb = openpyxl.load_workbook(inputfile)
+    wb = openpyxl.load_workbook(filename)
     ws = wb.active
-    cell_reference = ws['A1'].value  # Change this to the cell reference that contains the input
+    cell_reference = ws['A1'].value
     
     # Rest of your code here
 
