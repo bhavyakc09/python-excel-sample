@@ -18,5 +18,5 @@ jobs:
     - name: Install dependencies
       run: pip install openpyxl
     - name: Run script
-      run: python main.py A1
+      run: python main.py input_data.xlsx
       working-directory: ./
