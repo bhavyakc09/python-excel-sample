@@ -12,7 +12,7 @@ def main():
     print("Input file is:", input_file)
 
     filename = sys.argv[1]
-    wb = openpyxl.load_workbook(filename)
+    wb = openpyxl.load_workbook("input_data.xlsx")
     ws = wb.active
 
     print("Waiting for input...")
