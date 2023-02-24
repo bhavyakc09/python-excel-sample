@@ -1,4 +1,4 @@
-name: Process Data
+name: Excel Reader
 
 on:
   push:
@@ -6,17 +6,16 @@ on:
       - main
 
 jobs:
-  build:
+  read-excel:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
-    - name: Install dependencies
-      run: pip install openpyxl
-    - name: Run script
-      run: python main.py input_data.xlsx A1
-      working-directory: ./
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install openpyxl
+
+      - name: Run script
+        run: python main.py input_data.xlsx $(./get_input.py)
