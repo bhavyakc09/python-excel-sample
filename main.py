@@ -15,10 +15,11 @@ def main():
     wb = openpyxl.load_workbook(filename)
     ws = wb.active
 
-    print("Waiting for input...")
-    cell_reference = sys.argv[2]
-    cell_value = ws[cell_reference].value
     cell_reference = input("Please enter the cell reference (e.g. A1): ")
+    
+    print("Waiting for input...")
+    cell_value = ws[cell_reference].value
+    
 
     print(f"The value of cell {cell_reference} is: {cell_value}")
 
