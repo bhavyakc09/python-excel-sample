@@ -2,6 +2,8 @@ import sys
 import openpyxl
 
 def main():
+    print(sys.argv) # check that the command-line arguments are being passed correctly
+    
     if len(sys.argv) < 3:
         print("Please provide the name of the input file and the cell reference as command-line arguments")
         return
