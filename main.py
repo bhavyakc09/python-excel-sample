@@ -1,13 +1,7 @@
 import openpyxl
 import sys
 
-def get_input(prompt):
-    try:
-        return raw_input(prompt)
-    except NameError:
-        return input(prompt)
-
-def main():
+def main(input_func=input):
     
     # Read the command-line arguments
     input_file = sys.argv[1]
@@ -18,6 +12,16 @@ def main():
 
     # Get the value of the specified cell
     worksheet = workbook.active
+    cell = worksheet[cell_reference]
+    cell_value = cell.value
+
+    # Print the cell value
+    print(f"The value of cell {cell_reference} is {cell_value}")
+
+    # Prompt the user for input
+    cell_reference = input_func("Please enter the cell reference (e.g. A1): ")
+
+    # Get the value of the new cell reference
     cell = worksheet[cell_reference]
     cell_value = cell.value
 
