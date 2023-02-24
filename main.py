@@ -12,12 +12,14 @@ def main():
     print("Input file is:", input_file)
 
     filename = sys.argv[1]
-    wb = openpyxl.load_workbook("input_data.xlsx")
+    wb = openpyxl.load_workbook(filename)
     ws = wb.active
 
     print("Waiting for input...")
     cell_reference = sys.argv[2]
     cell_value = ws[cell_reference].value
+    cell_reference = input("Please enter the cell reference (e.g. A1): ")
+
     print(f"The value of cell {cell_reference} is: {cell_value}")
 
 if __name__ == "__main__":
