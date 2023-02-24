@@ -1,24 +1,21 @@
-import sys
 import openpyxl
+import sys
 
 def main():
-    if sys.version_info >= (3, 0):
-        input_func = input
-    else:
-        input_func = raw_input
-
+    # Read the command-line arguments
     input_file = sys.argv[1]
-    print("Input file is:", input_file)
+    cell_reference = sys.argv[2]
 
-    filename = sys.argv[1]
-    wb = openpyxl.load_workbook(filename)
-    ws = wb.active
+    # Load the input workbook
+    workbook = openpyxl.load_workbook(input_file, data_only=True)
 
-    print("Waiting for input...")
-    prompt = "Please enter the cell reference (e.g. A1): "
-    cell_reference = input_func(prompt)
-    cell_value = ws[cell_reference].value
-    print(f"The value of cell {cell_reference} is: {cell_value}")
+    # Get the value of the specified cell
+    worksheet = workbook.active
+    cell = worksheet[cell_reference]
+    cell_value = cell.value
+
+    # Print the cell value
+    print(f"The value of cell {cell_reference} is {cell_value}")
 
 if __name__ == '__main__':
     main()
