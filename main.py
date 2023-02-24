@@ -17,3 +17,7 @@ def main():
     cell_reference = input("Please enter the cell reference (e.g. A1): ")
     cell_value = ws[cell_reference].value
     print(f"The value of cell {cell_reference} is: {cell_value}")
+    
+    if __name__ == "__main__":
+    main()
+
