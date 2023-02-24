@@ -1,7 +1,14 @@
 import openpyxl
 import sys
 
+def get_input(prompt):
+    try:
+        return raw_input(prompt)
+    except NameError:
+        return input(prompt)
+
 def main():
+    
     # Read the command-line arguments
     input_file = sys.argv[1]
     cell_reference = sys.argv[2]
