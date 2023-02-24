@@ -2,14 +2,10 @@ import sys
 import openpyxl
 
 def main():
-    if len(sys.argv) < 2:
-        print("Please provide the name of the input file as a command-line argument")
-        return
-    
-    if sys.version_info[0] < 3:
-        input_func = raw_input
-    else:
+    if sys.version_info >= (3, 0):
         input_func = input
+    else:
+        input_func = raw_input
 
     input_file = sys.argv[1]
     print("Input file is:", input_file)
