@@ -1,6 +1,14 @@
 import openpyxl
 import sys
 
+def get_input(prompt):
+    try:
+        return raw_input(prompt)
+    except NameError:
+        return input(prompt)
+    
+    print(get_input("Please enter the cell reference (e.g. A1): "))
+    
 def main(input_func=input):
     
     # Read the command-line arguments
